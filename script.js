@@ -19,10 +19,12 @@ function fetchApi() {
     });
 }
 
+// On load Event Listener
 window.addEventListener("load", () => {
     fetchApi();
 });
 
+// Button Event Listener
 btn.addEventListener('click', () => {
 	fetchApi();
 });
@@ -43,7 +45,11 @@ const createMeal = (meal) => {
 		}
 	}
 
+    // For the properties not available, returned empty string using Ternary Operator
+
 	const newHTML = `
+    <br>
+    <h2>${meal.strMeal}</h2>
     <div>
     <img src="${meal.strMealThumb}" alt="Meal Image">
     </div>
@@ -52,22 +58,20 @@ const createMeal = (meal) => {
     <ul>
     ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join("")}
     </ul>
-    
+    <br>
+    <p>
+    ${meal.strInstructions}
+    </p>
+    <br>
+    <h2>Video Tutorial:</h2>
+    ${
+        meal.strYoutube
+            ? `
+            <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}">
+            `
+            : ''
+    }
     `
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     mealDiv.innerHTML = newHTML;
 };

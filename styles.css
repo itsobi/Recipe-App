@@ -9,3 +9,16 @@
 html {
     font-family: 'Poppins', sans-serif;
 }
+
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 500px;
+}
+
+iframe {
+    border: none;
+}
