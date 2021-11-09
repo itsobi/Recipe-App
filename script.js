@@ -48,23 +48,19 @@ const createMeal = (meal) => {
     // For the properties not available, returned empty string using Ternary Operator
 
 	const newHTML = `
-    <div>
+    <div class="container">
     <h2>${meal.strMeal}</h2>
     <img src="${meal.strMealThumb}" alt="Meal Image">
-    </div>
+    
 
-    <div>
-    <h2>Ingredients:</h2>
     <ul>
     ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join("")}
     </ul>
-    </div>
 
-    <div>
+   
     <p>
     ${meal.strInstructions}
     </p>
-    <br>
     <h2>Video Tutorial:</h2>
     ${
         meal.strYoutube
