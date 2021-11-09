@@ -7,8 +7,8 @@
 const btn = document.querySelector(".btn");
 const mealDiv = document.querySelector(".meal");
 
-// fetchApi function
-function fetchApi() {
+// fetchMealsFromApi function
+function fetchMealsFromApi() {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
     .then(response => response.json())
     .then(response => {
@@ -21,12 +21,12 @@ function fetchApi() {
 
 // On load Event Listener
 window.addEventListener("load", () => {
-    fetchApi();
+    fetchMealsFromApi();
 });
 
 // Button Event Listener
 btn.addEventListener('click', () => {
-	fetchApi();
+	fetchMealsFromApi();
 });
 
 // createMeal Function
@@ -48,17 +48,19 @@ const createMeal = (meal) => {
     // For the properties not available, returned empty string using Ternary Operator
 
 	const newHTML = `
-    <br>
-    <h2>${meal.strMeal}</h2>
     <div>
+    <h2>${meal.strMeal}</h2>
     <img src="${meal.strMealThumb}" alt="Meal Image">
     </div>
 
+    <div>
     <h2>Ingredients:</h2>
     <ul>
     ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join("")}
     </ul>
-    <br>
+    </div>
+
+    <div>
     <p>
     ${meal.strInstructions}
     </p>
@@ -72,6 +74,8 @@ const createMeal = (meal) => {
             `
             : ''
     }
+    </div>
     `
+    
     mealDiv.innerHTML = newHTML;
 };

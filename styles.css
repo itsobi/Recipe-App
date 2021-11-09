@@ -10,15 +10,23 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
-
-button {
-    cursor: pointer;
+body {
+    background-color: #eee;
 }
+
 
 img {
     width: 500px;
+    border-radius: 5px;
 }
 
+
+
+h2 {
+    font-weight: 400;
+}
 iframe {
     border: none;
 }
+
+
